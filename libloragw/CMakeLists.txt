@@ -13,6 +13,9 @@ option(DEBUG_GPIO "Active debug mode in GPIO module" OFF)
 option(DEBUG_LBT "Active debug mode in LBT module" OFF)
 option(DEBUG_GPS "Active debug mode in GPS module" OFF)
 
+set(SPI_DEV_PATH "/dev/spidev0.0" CACHE FILEPATH "Path of spi-dev")
+set(SPI_SPEED 8000000 CACHE STRING "SPI clock frequency")
+
 message("-- Build with debug AUX: ${DEBUG_AUX}")
 message("-- Build with debug SPI: ${DEBUG_SPI}")
 message("-- Build with debug REG: ${DEBUG_REG}")
@@ -20,6 +23,8 @@ message("-- Build with debug HAL: ${DEBUG_HAL}")
 message("-- Build with debug GPIO: ${DEBUG_GPIO}")
 message("-- Build with debug LBT: ${DEBUG_LBT}")
 message("-- Build with debug GPS: ${DEBUG_GPS}")
+message("-- Build with SPI_DEV_PATH: ${SPI_DEV_PATH}")
+message("-- Build with SPI_SPEED: ${SPI_SPEED}")
 
 # --  add the compile options
 target_compile_options(
@@ -28,6 +33,8 @@ target_compile_options(
 	-Werror
 	-Wall
 	-Wextra
+	-DSPI_DEV_PATH="${SPI_DEV_PATH}"
+	-DSPI_SPEED=${SPI_SPEED}
 )
 
 target_sources(${TARGET}

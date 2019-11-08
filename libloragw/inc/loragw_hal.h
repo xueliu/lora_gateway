@@ -414,6 +414,12 @@ const char* lgw_version_info(void);
 */
 uint32_t lgw_time_on_air(struct lgw_pkt_tx_s *packet);
 
+extern uint8_t lgwx_device_mode;
+extern uint8_t lgwx_beacon_len;
+extern uint8_t lgwx_beacon_sf;
+extern uint8_t lgwx_lbt_mode;
+enum { LGWX_LBT_MODE_DFLT=0, LGWX_LBT_MODE_OFF = 1 };
+
 #endif
 
 /* --- EOF ------------------------------------------------------------------ */

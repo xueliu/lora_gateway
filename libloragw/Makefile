@@ -7,6 +7,7 @@ include library.cfg
 
 ARCH ?=
 CROSS_COMPILE ?=
+
 CC := $(CROSS_COMPILE)gcc
 AR := $(CROSS_COMPILE)ar
 
